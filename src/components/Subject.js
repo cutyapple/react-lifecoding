@@ -2,10 +2,20 @@ import React, { Component } from 'react';
 
 class Subject extends Component{
     render(){
+      var lists = [];
+      var data = this.props.data;
+      var i = 0;
+      while(i < data.length){
+          lists.push(<li key={data[i].id}><a href={"/content/"+data[i].id}>{data[i].title}</a></li>);
+          i += 1;
+      }
+
+
       return(
         <header>
-          <h1>{this.props.title}</h1>
-          <p>My RE:ACT Web!</p>
+          <ul>
+              {lists}
+          </ul>
         </header>
       );
     }
